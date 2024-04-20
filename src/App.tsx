@@ -30,8 +30,8 @@ function App() {
   };
 
   return (
-    <main className="w-full h-screen bg-red-100 flex flex-col items-center">
-      <div className="bg-red-200 w-[70%] p-5 rounded-xl mt-5">
+    <main className="w-full min-h-screen bg-red-100 flex flex-col items-center">
+      <div className="bg-red-200 w-[70%] p-5 rounded-xl mt-5 mb-5">
         <Headers image={{ src: imageOne, alt: "A list of goals" }}>
           <h1 className="text-2xl font-semibold text-red-500">
             Your Course Goals
