@@ -7,8 +7,8 @@ type HeaderProps = {
 
 const Headers: FC<HeaderProps> = ({ image, children }) => {
   return (
-    <header className="flex flex-col items-center gap-5">
-      <img {...image} />
+    <header className="flex flex-col items-center gap-5 mb-5">
+      <img {...image} className="w-28"/>
       {children}
     </header>
   );

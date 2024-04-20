@@ -3,6 +3,7 @@ import Headers from "./components/Headers";
 import imageOne from "../src/assets/react.svg";
 import { useState } from "react";
 import CourseGoalList from "./components/CourseGoalList";
+import NewGoal from "./components/NewGoal";
 
 export type CourseGoal = {
   title: string;
@@ -13,12 +14,12 @@ export type CourseGoal = {
 function App() {
   const [goals, setGoals] = useState<CourseGoal[]>([]);
 
-  const handleAddGoal = () => {
+  const handleAddGoal = (goal: string, summary: string) => {
     setGoals((prevGoals) => {
       const newGoal: CourseGoal = {
         id: Math.random(),
-        title: "Learn React + TS",
-        description: "learn it in depth!",
+        title: goal,
+        description: summary,
       };
       return [...prevGoals, newGoal];
     });
@@ -29,12 +30,14 @@ function App() {
   };
 
   return (
-    <main className="w-full h-screen bg-red-100 flex flex-col justify-center items-center">
-      <div className="bg-red-300 w-[50%] p-5 rounded-xl">
+    <main className="w-full h-screen bg-red-100 flex flex-col items-center">
+      <div className="bg-red-200 w-[70%] p-5 rounded-xl mt-5">
         <Headers image={{ src: imageOne, alt: "A list of goals" }}>
-          <h1>Your Course Goals</h1>
+          <h1 className="text-2xl font-semibold text-red-500">
+            Your Course Goals
+          </h1>
         </Headers>
-        <button onClick={handleAddGoal}>Add Goal</button>
+        <NewGoal onAddGoal={handleAddGoal} />
         <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
       </div>
     </main>
